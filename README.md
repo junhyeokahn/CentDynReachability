@@ -1,10 +1,11 @@
 # CentDynReachability
 Learn Occupancy Measurement from the Centroid Dynamics States Reachability
 
-# Dependancy
-- DART
+## Dependancy
+- [DART](https://github.com/dartsim/dart)
+- [Tesorflow](https://www.tensorflow.org/)
 
-# Install
+## Install
 ```
 git clone --recursive https://github.com/junhyeokahn/CentDynReachability.git
 ```
