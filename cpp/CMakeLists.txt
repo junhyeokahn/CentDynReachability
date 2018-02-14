@@ -9,7 +9,8 @@ set(CMAKE_CXX_FLAGS "-std=c++11")
 ## ==========
 ## Dependancy
 ## ==========
-find_package(DART 7.0.0 REQUIRED COMPONENTS io-urdf CONFIG)
+#find_package(DART 7.0.0 REQUIRED COMPONENTS io-urdf CONFIG)
+find_package(DART 6.4 REQUIRED COMPONENTS utils-urdf gui-osg CONFIG)
 
 ## =================
 ## Include Directory
@@ -18,12 +19,15 @@ include_directories(${DART_INCLUDE_DIRS})
 include_directories(${PROJECT_SOURCE_DIR})
 include_directories("${PROJECT_SOURCE_DIR}/RobotModel")
 include_directories("${PROJECT_SOURCE_DIR}/ExternalSource")
+include_directories("${PROJECT_SOURCE_DIR}/Utils")
 
 add_subdirectory(RobotModel)
+add_subdirectory(Utils)
 
 add_executable(CentDynReachability main.cpp)
 target_link_libraries(CentDynReachability dartRobotModel)
-target_link_libraries(CentDynReachability ${DART_LIBRARIES})
+target_link_libraries(CentDynReachability ${DART_LIBRARIES}
+                                          dartUtils)
 
 ## ==================
 ## Configuration File

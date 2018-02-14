@@ -5,7 +5,7 @@ RobotModel* RobotModel::getRobotModel() {
 }
 
 RobotModel::RobotModel() {
-    dart::io::DartLoader urdfLoader;
+    dart::utils::DartLoader urdfLoader;
     mSkel = urdfLoader.parseSkeleton("/Users/junhyeok/Repository/MotionCtrl/cpp/Valkyrie/Simulator/RobotModel/valkyrie.urdf");
 
     printf("[Robot Model] Constructed\n");

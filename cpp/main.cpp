@@ -15,14 +15,24 @@ void _getJointLimits(RobotModel* robot_, std::vector< Eigen::VectorXd > &jPosLim
     jTrqLimits_[1] = robot_->getJointForceLimits().second;
 }
 
-Eigen::VectorXd _drawSample(const std::vector< Eigen::VectorXd > & limits_, 
+Eigen::VectorXd _drawSample(const std::vector< Eigen::VectorXd > & limits_,
                             double var_=-1.0) {
-    Eigen::VectorXd ret = Eigen::VectorXd::Zero(limits_[0].size());
-    // draw
+    int numVars(limits_[0].size());
+    Eigen::VectorXd ret = Eigen::VectorXd::Zero(numVars);
+
+    std::random_device rd;  //Will be used to obtain a seed for the random number engine
+    std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
+
     if (var_ == -1.0) {
-        
+        for (int i = 0; i < numVars; ++i) {
+            std::uniform_real_distribution<double> dis(limits_[0][i], limits_[1][i]);
+            ret[i] = dis(gen);
+        }
     } else {
-        
+        for (int i = 0; i < numVars; ++i) {
+            std::normal_distribution<double> dis(limits_[0][i], limits_[1][i]);
+            ret[i] = dis(gen);
+        }
     }
     return ret;
 }
@@ -36,6 +46,9 @@ int main(int argc, char *argv[])
     std::vector< Eigen::VectorXd > jTrqLimits(2);
     _getJointLimits(robot, jPosLimits, jVelLimits, jAccLimits, jTrqLimits);
     Eigen::VectorXd jPos = _drawSample(jPosLimits);
+    Eigen::VectorXd jVel = _drawSample(jVelLimits, 1.0);
+    Eigen::VectorXd jAcc = _drawSample(jAccLimits, 1.0);
+    std::cout << jPos << std::endl;
 
     std::cout << "done" << std::endl;
     return 0;

@@ -2,8 +2,8 @@
 #define ROBOTMODEL_H
 
 #include <dart/dart.hpp>
-#include <dart/io/io.hpp>
-#include <dart/io/urdf/urdf.hpp>
+#include <dart/utils/utils.hpp>
+#include <dart/utils/urdf/urdf.hpp>
 #include <Eigen/Dense>
 
 class RobotModel
