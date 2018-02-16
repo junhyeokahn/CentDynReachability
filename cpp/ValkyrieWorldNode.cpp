@@ -1,5 +1,6 @@
 #include "ValkyrieWorldNode.hpp"
 #include "RobotModel.hpp"
+#include "Utilities.hpp"
 
 ValkyrieWorldNode::ValkyrieWorldNode(const dart::simulation::WorldPtr & world_) :
     dart::gui::osg::WorldNode(world_) {
@@ -24,8 +25,8 @@ void ValkyrieWorldNode::customPreStep() {
     mRobot->updateModel(jPos, jVel);
 
     // Self Collision Check //
-    // If there is no collision, save CoM data
-    // Otherwise, clear the collision and reset to initial position
+    // If there is no collision, save CoM data //
+    // Otherwise, clear the collision and reset to initial position //
     auto collisionEngine = mWorld->getConstraintSolver()->getCollisionDetector();
     auto collisionGroup = mWorld->getConstraintSolver()->getCollisionGroup();
 
@@ -41,6 +42,8 @@ void ValkyrieWorldNode::customPreStep() {
             std::cout << (*iter)->getName() << std::endl;
         }
         result.clear();
+        jPos.head(6) = Eigen::VectorXd::Zero(6);
+        jPos[5] = 1.5;
         mSkel->setPositions(mRobot->getInitialPositions());
         result.clear();
     } else {
@@ -54,6 +57,7 @@ void ValkyrieWorldNode::customPreStep() {
 
         // Get CoM w.r.t Reference Frame //
         std::cout << mRobot->getCOM(&refFrame) << std::endl;
+        myUtils::saveVector(mRobot->getCOM(&refFrame), "CoM_rFoot");
 
         // For Visualization Purpose //
         jPos.head(6) = Eigen::VectorXd::Zero(6);
