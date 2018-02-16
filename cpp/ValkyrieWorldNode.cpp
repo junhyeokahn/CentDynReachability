@@ -5,6 +5,8 @@
 ValkyrieWorldNode::ValkyrieWorldNode(const dart::simulation::WorldPtr & world_) :
     dart::gui::osg::WorldNode(world_) {
 
+    mNumData = 20000;
+    mCount = 0;
     mWorld = world_;
     mSkel = world_->getSkeleton("valkyrie");
     mRobot = RobotModel::getRobotModel();
@@ -65,6 +67,11 @@ void ValkyrieWorldNode::customPreStep() {
         mSkel->setPositions(jPos);
     }
 
+    ++mCount;
+    if (mCount > mNumData) {
+        std::cout << mNumData << " is Saved" << std::endl;
+        exit(0);
+    }
     //std::cout << "----" << std::endl;
 }
 

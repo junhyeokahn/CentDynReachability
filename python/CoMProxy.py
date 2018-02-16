@@ -5,6 +5,16 @@ import sys
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
+class PDF(object):
+    def __init__(self, _mean, _var=0.1):
+        self.mean = _mean
+        self.var = _var
+
+    def evaluate(self, _x):
+        return (np.exp(-0.5*((np.linalg.norm((_x-self.mean))/self.var)**2))) \
+                / (np.sqrt(2 * np.pi))
+
+
 def readData(fileName_, dim_):
     if not os.path.isfile(fileName_):
         print("File path {} does not exist. Exiting...".format(fileName_))
@@ -50,13 +60,53 @@ def plotTest(params):
 
     plt.show()
 
+def drawContourPlot(_pointList, _value, _x, _y):
+    fig = plt.figure()
+    plt.contour(_pointList[_x], _pointList[_y], _value, 7)
+
+
+def kernelDensityEstimation(_pdfList, _x):
+    ret = 0.
+    for pdf in _pdfList:
+        ret += pdf.evaluate(_x)
+    return ret
+
 def main():
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataPath", type=str, default="../cpp/ExperimentData/")
     args = parser.parse_args()
 
-    plotTest(args)
+    CoM_rFoot = readData(args.dataPath+"CoM_rFoot.txt", 3)
+    pdfList = []
+    for com in CoM_rFoot:
+        pdfList.append(PDF(com))
+
+    ''' Validating '''
+    # plotTest(args)
+
+    # pdfTest = PDF(0, 0.1)
+    # x = np.arange(-5, 5, 0.001)
+    # y = pdfTest.evaluate(x)
+    # plt.plot(x, y)
+    # plt.show()
+
+    numCoM = 5
+    comX = np.linspace(-0.8, 0.8, numCoM)
+    comY = np.linspace(-0.5, 0.5, numCoM)
+    comZ = np.linspace(-0.3, 1.2, numCoM)
+    comXList, comYList, comZList = np.meshgrid(comX, comY, comZ)
+    import ipdb
+    ipdb.set_trace()
+    exit()
+    kdeVal = []
+    for com in comList:
+        kdeVal.append(kernelDensityEstimation(pdfList, com))
+    print("Eval Done")
+
+    drawContourPlot(comList, kdeVal, 0, 1) # X-Y Plane Projection
+
+    plt.show()
 
 if __name__ == "__main__":
     main()

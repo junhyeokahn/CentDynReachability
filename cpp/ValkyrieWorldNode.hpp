@@ -26,6 +26,8 @@ private:
 
     Eigen::VectorXd _drawSample(const std::vector< Eigen::VectorXd > & limits_,
                                 double var_=-1.0);
+    int mNumData;
+    int mCount;
 public:
     ValkyrieWorldNode(const dart::simulation::WorldPtr & world);
     virtual ~ValkyrieWorldNode();
