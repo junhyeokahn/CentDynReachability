@@ -1,9 +1,11 @@
 import numpy as np
 import tensorflow as tf
+import tqdm as tqdm
 import os
 import sys
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
+import time
 
 class PDF(object):
     def __init__(self, _mean, _var=0.1):
@@ -62,8 +64,8 @@ def plotTest(params):
 
 def drawContourPlot(_pointList, _value, _x, _y):
     fig = plt.figure()
-    plt.contour(_pointList[_x], _pointList[_y], _value, 7)
-
+    cp = plt.contourf(_pointList[0], _pointList[1], _value, 7)
+    plt.colorbar(cp)
 
 def kernelDensityEstimation(_pdfList, _x):
     ret = 0.
@@ -81,31 +83,56 @@ def main():
     pdfList = []
     for com in CoM_rFoot:
         pdfList.append(PDF(com))
+    print("%d of PDF are Generated!" % len(pdfList))
 
     ''' Validating '''
     # plotTest(args)
-
     # pdfTest = PDF(0, 0.1)
     # x = np.arange(-5, 5, 0.001)
     # y = pdfTest.evaluate(x)
     # plt.plot(x, y)
     # plt.show()
 
-    numCoM = 5
-    comX = np.linspace(-0.8, 0.8, numCoM)
-    comY = np.linspace(-0.5, 0.5, numCoM)
-    comZ = np.linspace(-0.3, 1.2, numCoM)
-    comXList, comYList, comZList = np.meshgrid(comX, comY, comZ)
-    import ipdb
-    ipdb.set_trace()
-    exit()
+    numCoM = 50
+    selectedAxis = [0,1]
+    reducedAxis = 3-selectedAxis[0]-selectedAxis[1]
+
+    sampleRange = [np.array([-1.2, 0.8]), np.array([-0.5, 0.5]), np.array([-0.3, 1.2])]
+    comLinSpace = [np.linspace(sampleRange[selectedAxis[0]][0],
+                               sampleRange[selectedAxis[0]][1], numCoM),
+                   np.linspace(sampleRange[selectedAxis[1]][0],
+                               sampleRange[selectedAxis[1]][1], numCoM)]
+    comSelectedAxis = np.meshgrid(comLinSpace[0], comLinSpace[1])
+    comAugmented = np.array([np.average(sampleRange[0]), np.average(sampleRange[1]),
+                             np.average(sampleRange[2])])
+    for i in range(numCoM):
+        for j in range(numCoM):
+            if reducedAxis == 0:
+                comAugmented = np.vstack((comAugmented,
+                                          np.array([np.average(sampleRange[reducedAxis]),
+                                          comSelectedAxis[0][i, j],
+                                          comSelectedAxis[1][i, j]] )))
+            elif reducedAxis == 1:
+                comAugmented = np.vstack((comAugmented,
+                                          np.array([comSelectedAxis[0][i, j],
+                                                    np.average(sampleRange[reducedAxis]),
+                                                    comSelectedAxis[1][i, j]])))
+            else:
+                comAugmented = np.vstack((comAugmented,
+                                          np.array([comSelectedAxis[0][i, j], \
+                                                    comSelectedAxis[1][i, j], \
+                                                    np.average(sampleRange[reducedAxis])]) ))
     kdeVal = []
-    for com in comList:
+    KDEStartTime = time.time()
+    for i, com in enumerate(comAugmented):
         kdeVal.append(kernelDensityEstimation(pdfList, com))
-    print("Eval Done")
+        if i%10 == 0:
+            print("\r {} out of {} are Evaluated".format(i, len(comAugmented)))
+    KDEEndTime = time.time()
+    print("%s Seconds took for Kernel Density Estimation" \
+            % (KDEEndTime-KDEStartTime))
 
-    drawContourPlot(comList, kdeVal, 0, 1) # X-Y Plane Projection
-
+    drawContourPlot(comSelectedAxis, np.array(kdeVal[1:]).reshape(comSelectedAxis[0].shape), 0, 1) # X-Y Plane Projection
     plt.show()
 
 if __name__ == "__main__":
