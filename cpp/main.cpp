@@ -1,55 +1,42 @@
-#include "RobotModel.hpp"
-#include <Eigen/Dense>
-
-void _getJointLimits(RobotModel* robot_, std::vector< Eigen::VectorXd > &jPosLimits_,
-                                         std::vector< Eigen::VectorXd > &jVelLimits_,
-                                         std::vector< Eigen::VectorXd > &jAccLimits_,
-                                         std::vector< Eigen::VectorXd > &jTrqLimits_) {
-    jPosLimits_[0] = robot_->getJointPositionLimits().first;
-    jPosLimits_[1] = robot_->getJointPositionLimits().second;
-    jVelLimits_[0] = robot_->getJointVelocityLimits().first;
-    jVelLimits_[1] = robot_->getJointVelocityLimits().second;
-    jAccLimits_[0] = robot_->getJointAccelerationLimits().first;
-    jAccLimits_[1] = robot_->getJointAccelerationLimits().second;
-    jTrqLimits_[0] = robot_->getJointForceLimits().first;
-    jTrqLimits_[1] = robot_->getJointForceLimits().second;
-}
-
-Eigen::VectorXd _drawSample(const std::vector< Eigen::VectorXd > & limits_,
-                            double var_=-1.0) {
-    int numVars(limits_[0].size());
-    Eigen::VectorXd ret = Eigen::VectorXd::Zero(numVars);
-
-    std::random_device rd;  //Will be used to obtain a seed for the random number engine
-    std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
-
-    if (var_ == -1.0) {
-        for (int i = 0; i < numVars; ++i) {
-            std::uniform_real_distribution<double> dis(limits_[0][i], limits_[1][i]);
-            ret[i] = dis(gen);
-        }
-    } else {
-        for (int i = 0; i < numVars; ++i) {
-            std::normal_distribution<double> dis(limits_[0][i], limits_[1][i]);
-            ret[i] = dis(gen);
-        }
-    }
-    return ret;
-}
+#include <dart/dart.hpp>
+#include <dart/gui/osg/osg.hpp>
+#include <dart/utils/utils.hpp>
+#include <dart/utils/urdf/urdf.hpp>
+#include "ValkyrieWorldNode.hpp"
+#include "Configuration.h"
 
 int main(int argc, char *argv[])
 {
-    RobotModel* robot = RobotModel::getRobotModel();
-    std::vector< Eigen::VectorXd > jPosLimits(2);
-    std::vector< Eigen::VectorXd > jVelLimits(2);
-    std::vector< Eigen::VectorXd > jAccLimits(2);
-    std::vector< Eigen::VectorXd > jTrqLimits(2);
-    _getJointLimits(robot, jPosLimits, jVelLimits, jAccLimits, jTrqLimits);
-    Eigen::VectorXd jPos = _drawSample(jPosLimits);
-    Eigen::VectorXd jVel = _drawSample(jVelLimits, 1.0);
-    Eigen::VectorXd jAcc = _drawSample(jAccLimits, 1.0);
-    std::cout << jPos << std::endl;
+    //// Generate world and add skeletons
+    dart::simulation::WorldPtr world(new dart::simulation::World);
+    dart::utils::DartLoader urdfLoader;
+    dart::dynamics::SkeletonPtr robot = urdfLoader.parseSkeleton(
+            THIS_COM"RobotModel/valkyrie.urdf");
+    world->addSkeleton(robot);
+    robot->setSelfCollisionCheck(true);
+    robot->setAdjacentBodyCheck(false);
+    Eigen::Vector3d gravity(0.0, 0.0, 0.0);
+    world->setGravity(gravity);
+    world->setTimeStep(1.0/1000);
 
-    std::cout << "done" << std::endl;
+    //// Wrap a worldnode
+    osg::ref_ptr<ValkyrieWorldNode> node
+        = new ValkyrieWorldNode(world);
+    node->setNumStepsPerCycle(20);
+
+    //// Create viewer
+    dart::gui::osg::Viewer viewer;
+    viewer.addWorldNode(node);
+    viewer.simulate(false);
+    std::cout << "=====================================" << std::endl;
+    std::cout << viewer.getInstructions() << std::endl;
+    viewer.setUpViewInWindow(0, 0, 640, 480);
+    viewer.getCameraManipulator()->setHomePosition(
+            ::osg::Vec3( 2.57,  3.14, 2.)*2.0,
+            ::osg::Vec3( 0.00,  0.00, 1.00),
+            ::osg::Vec3(-0.24, -0.25, 0.94));
+    viewer.setCameraManipulator(viewer.getCameraManipulator());
+    viewer.run();
+
     return 0;
 }

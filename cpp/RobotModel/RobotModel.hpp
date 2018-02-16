@@ -12,6 +12,7 @@ private:
     RobotModel();
 
     dart::dynamics::SkeletonPtr mSkel;
+    Eigen::VectorXd mInitialPositions;
 
 public:
     static RobotModel* getRobotModel();
@@ -22,7 +23,9 @@ public:
     dart::dynamics::SkeletonPtr getSkeleton(); // will be depricated
     Eigen::MatrixXd getMassMatrix();
     double getTotalMass();
+    Eigen::VectorXd getCOM(const dart::dynamics::Frame* _wrt=dart::dynamics::Frame::World());
     Eigen::VectorXd getCoriolisAndGravityForces();
+    Eigen::VectorXd getInitialPositions();
     std::pair<Eigen::VectorXd, Eigen::VectorXd> getJointPositionLimits();
     std::pair<Eigen::VectorXd, Eigen::VectorXd> getJointVelocityLimits();
     std::pair<Eigen::VectorXd, Eigen::VectorXd> getJointAccelerationLimits();

@@ -1,4 +1,5 @@
 #include "RobotModel.hpp"
+#include <Configuration.h>
 RobotModel* RobotModel::getRobotModel() {
     static RobotModel robot;
     return & robot;
@@ -6,7 +7,8 @@ RobotModel* RobotModel::getRobotModel() {
 
 RobotModel::RobotModel() {
     dart::utils::DartLoader urdfLoader;
-    mSkel = urdfLoader.parseSkeleton("/Users/junhyeok/Repository/MotionCtrl/cpp/Valkyrie/Simulator/RobotModel/valkyrie.urdf");
+    mSkel = urdfLoader.parseSkeleton(THIS_COM"RobotModel/valkyrie.urdf");
+    mInitialPositions = mSkel->getPositions();
 
     printf("[Robot Model] Constructed\n");
 }
@@ -19,6 +21,9 @@ void RobotModel::updateModel(const Eigen::VectorXd & q_,
     mSkel->setVelocities(qdot_);
 }
 
+Eigen::VectorXd RobotModel::getInitialPositions() {
+    return mInitialPositions;
+}
 dart::dynamics::SkeletonPtr RobotModel::getSkeleton() {
     return mSkel;
 }
@@ -37,6 +42,10 @@ Eigen::VectorXd RobotModel::getCoriolisAndGravityForces() {
 
 double RobotModel::getTotalMass() {
     return mSkel->getMass();
+}
+
+Eigen::VectorXd RobotModel::getCOM(const dart::dynamics::Frame* _wrt) {
+    return mSkel->getCOM(_wrt);
 }
 
 std::pair<Eigen::VectorXd, Eigen::VectorXd> RobotModel::getJointPositionLimits() {

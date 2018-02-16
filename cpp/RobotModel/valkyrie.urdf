@@ -40,18 +40,18 @@
         <color rgba="0.9098 0.44314 0.031373 1" />
       </material>
     </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="-0.0503 0 -0.00195"/>
-      <geometry>
-        <box size="0.1311 0.12 0.0591"/>
-      </geometry>
-    </collision>
-    <collision>
-      <origin rpy="0 0 0" xyz="-0.093 0 0.0868"/>
-      <geometry>
-        <box size="0.0468 0.12 0.1184"/>
-      </geometry>
-    </collision>
+    <!--<collision>-->
+      <!--<origin rpy="0 0 0" xyz="-0.0503 0 -0.00195"/>-->
+      <!--<geometry>-->
+        <!--<box size="0.1311 0.12 0.0591"/>-->
+      <!--</geometry>-->
+    <!--</collision>-->
+    <!--<collision>-->
+      <!--<origin rpy="0 0 0" xyz="-0.093 0 0.0868"/>-->
+      <!--<geometry>-->
+        <!--<box size="0.0468 0.12 0.1184"/>-->
+      <!--</geometry>-->
+    <!--</collision>-->
   </link>
   <link name="hokuyo_link">
     <inertial>
@@ -70,18 +70,18 @@
         <color rgba="0.72941 0.35686 0.023529 1"/>
       </material>
     </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0.01885 0 -0.02119"/>
-      <geometry>
-        <box size="0.08 0.06 0.04238"/>
-      </geometry>
-    </collision>
-    <collision>
-      <origin rpy="0 0 0" xyz="0.03 0 0.0235"/>
-      <geometry>
-        <cylinder length="0.047" radius="0.024425"/>
-      </geometry>
-    </collision>
+    <!--<collision>-->
+      <!--<origin rpy="0 0 0" xyz="0.01885 0 -0.02119"/>-->
+      <!--<geometry>-->
+        <!--<box size="0.08 0.06 0.04238"/>-->
+      <!--</geometry>-->
+    <!--</collision>-->
+    <!--<collision>-->
+      <!--<origin rpy="0 0 0" xyz="0.03 0 0.0235"/>-->
+      <!--<geometry>-->
+        <!--<cylinder length="0.047" radius="0.024425"/>-->
+      <!--</geometry>-->
+    <!--</collision>-->
   </link>
   <joint name="hokuyo_joint" type="continuous">
     <origin rpy="0 0 0" xyz="-0.0446 0 0.0880"/>
@@ -252,12 +252,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/torso/torsoyaw.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/torso/torsoyaw.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="torsoPitchLink">
     <inertial>
@@ -271,12 +271,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/torso/torsopitch.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/torso/torsopitch.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="torso">
     <inertial>
@@ -336,12 +336,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/head/neckj1.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/head/neckj1.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="neckYawLink">
     <inertial>
@@ -355,12 +355,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/head/neckj2.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/head/neckj2.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="upperNeckPitchLink">
     <inertial>
@@ -374,12 +374,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/head/head_multisense_no_visor.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/head/head_multisense_no_visor.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <joint name="lowerNeckPitch" type="revolute">
     <origin rpy="0.0 0.0 0.0" xyz="0.0203518 0.0 0.33845"/>
@@ -420,12 +420,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/arms/aj1_right.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/arms/aj1_right.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="rightShoulderRollLink">
     <inertial>
@@ -439,12 +439,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/arms/aj2_right.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/arms/aj2_right.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="rightShoulderYawLink">
     <inertial>
@@ -477,12 +477,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/arms/aj4_right.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/arms/aj4_right.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <joint name="rightShoulderPitch" type="revolute">
     <origin rpy="0.0 0.0 0.0" xyz="-0.0316 0.0 0.2984"/>
@@ -551,12 +551,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/arms/aj6_right.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/arms/aj6_right.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="rightPalm">
     <inertial>
@@ -616,12 +616,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/fingers/thumbj1_right.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/fingers/thumbj1_right.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="rightThumbPitch1Link">
     <inertial>
@@ -635,12 +635,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/fingers/thumbj2_right.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/fingers/thumbj2_right.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="rightThumbPitch2Link">
     <inertial>
@@ -654,12 +654,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/fingers/thumbj3_right.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/fingers/thumbj3_right.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="rightThumbPitch3Link">
     <inertial>
@@ -673,12 +673,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/fingers/thumbj4_right.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/fingers/thumbj4_right.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <joint name="rightThumbRoll" type="revolute">
     <origin rpy="0.3491 0.0 0.0" xyz="0.0049 -0.0351 0.0228"/>
@@ -724,12 +724,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/fingers/indexj1_right.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/fingers/indexj1_right.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="rightIndexFingerPitch2Link">
     <inertial>
@@ -743,12 +743,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/fingers/indexj2_right.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/fingers/indexj2_right.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="rightIndexFingerPitch3Link">
     <inertial>
@@ -762,12 +762,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/fingers/indexj3_right.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/fingers/indexj3_right.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <joint name="rightIndexFingerPitch1" type="revolute">
     <origin rpy="-0.1745 0.0 0.0" xyz="0.0022 -0.0976 0.0235"/>
@@ -805,12 +805,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/fingers/middlej1_right.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/fingers/middlej1_right.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="rightMiddleFingerPitch2Link">
     <inertial>
@@ -824,12 +824,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/fingers/middlej2_right.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/fingers/middlej2_right.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="rightMiddleFingerPitch3Link">
     <inertial>
@@ -843,12 +843,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/fingers/middlej3_right.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/fingers/middlej3_right.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <joint name="rightMiddleFingerPitch1" type="revolute">
     <origin rpy="0.1222 0.0 0.0" xyz="0.0022 -0.097 -0.0119"/>
@@ -886,12 +886,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/fingers/pinkyj1_right.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/fingers/pinkyj1_right.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="rightPinkyPitch2Link">
     <inertial>
@@ -905,12 +905,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/fingers/pinkyj2_right.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/fingers/pinkyj2_right.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="rightPinkyPitch3Link">
     <inertial>
@@ -924,12 +924,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/fingers/pinkyj3_right.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/fingers/pinkyj3_right.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <joint name="rightPinkyPitch1" type="revolute">
     <origin rpy="0.1222 0.0 0.0" xyz="0.0022 -0.0838 -0.041"/>
@@ -967,12 +967,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/arms/aj1_left.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/arms/aj1_left.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="leftShoulderRollLink">
     <inertial>
@@ -986,12 +986,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/arms/aj2_left.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/arms/aj2_left.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="leftShoulderYawLink">
     <inertial>
@@ -1024,12 +1024,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/arms/aj4_left.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/arms/aj4_left.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <joint name="leftShoulderPitch" type="revolute">
     <origin rpy="0.0 0.0 0.0" xyz="-0.0316 0.0 0.2984"/>
@@ -1098,12 +1098,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/arms/aj6_left.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/arms/aj6_left.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="leftPalm">
     <inertial>
@@ -1163,12 +1163,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/fingers/thumbj1_left.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/fingers/thumbj1_left.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="leftThumbPitch1Link">
     <inertial>
@@ -1182,12 +1182,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/fingers/thumbj2_left.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/fingers/thumbj2_left.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="leftThumbPitch2Link">
     <inertial>
@@ -1201,12 +1201,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/fingers/thumbj3_left.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/fingers/thumbj3_left.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="leftThumbPitch3Link">
     <inertial>
@@ -1220,12 +1220,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/fingers/thumbj4_left.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/fingers/thumbj4_left.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <joint name="leftThumbRoll" type="revolute">
     <origin rpy="-0.3491 0.0 0.0" xyz="0.0049 0.0351 0.0228"/>
@@ -1271,12 +1271,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/fingers/indexj1_left.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/fingers/indexj1_left.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="leftIndexFingerPitch2Link">
     <inertial>
@@ -1290,12 +1290,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/fingers/indexj2_left.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/fingers/indexj2_left.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="leftIndexFingerPitch3Link">
     <inertial>
@@ -1309,12 +1309,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/fingers/indexj3_left.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/fingers/indexj3_left.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <joint name="leftIndexFingerPitch1" type="revolute">
     <origin rpy="0.1745 0.0 0.0" xyz="0.0022 0.0976 0.0235"/>
@@ -1352,12 +1352,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/fingers/middlej1_left.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/fingers/middlej1_left.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="leftMiddleFingerPitch2Link">
     <inertial>
@@ -1371,12 +1371,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/fingers/middlej2_left.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/fingers/middlej2_left.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="leftMiddleFingerPitch3Link">
     <inertial>
@@ -1390,12 +1390,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/fingers/middlej3_left.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/fingers/middlej3_left.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <joint name="leftMiddleFingerPitch1" type="revolute">
     <origin rpy="-0.1222 0.0 0.0" xyz="0.0022 0.097 -0.0119"/>
@@ -1433,12 +1433,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/fingers/pinkyj1_left.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/fingers/pinkyj1_left.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="leftPinkyPitch2Link">
     <inertial>
@@ -1452,12 +1452,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/fingers/pinkyj2_left.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/fingers/pinkyj2_left.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="leftPinkyPitch3Link">
     <inertial>
@@ -1471,12 +1471,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/fingers/pinkyj3_left.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/fingers/pinkyj3_left.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <joint name="leftPinkyPitch1" type="revolute">
     <origin rpy="-0.1222 0.0 0.0" xyz="0.0022 0.0838 -0.041"/>
@@ -1514,12 +1514,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/legs/lj1_right.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/legs/lj1_right.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="rightHipRollLink">
     <inertial>
@@ -1533,12 +1533,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/legs/lj2_right.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/legs/lj2_right.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="rightHipPitchLink">
     <inertial>
@@ -1552,12 +1552,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/legs/lj3_right.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/legs/lj3_right.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="rightKneePitchLink">
     <inertial>
@@ -1590,12 +1590,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/legs/lj5.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/legs/lj5.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="rightFoot">
     <inertial>
@@ -1682,12 +1682,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/legs/lj1_left.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/legs/lj1_left.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="leftHipRollLink">
     <inertial>
@@ -1701,12 +1701,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/legs/lj2_left.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/legs/lj2_left.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="leftHipPitchLink">
     <inertial>
@@ -1720,12 +1720,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/legs/lj3_left.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/legs/lj3_left.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="leftKneePitchLink">
     <inertial>
@@ -1758,12 +1758,12 @@
       </geometry>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="meshes/legs/lj5.dae"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
+    <!--<collision>-->
+      <!--<geometry>-->
+        <!--<mesh filename="meshes/legs/lj5.dae"/>-->
+      <!--</geometry>-->
+      <!--<origin rpy="0 0 0" xyz="0 0 0"/>-->
+    <!--</collision>-->
   </link>
   <link name="leftFoot">
     <inertial>
