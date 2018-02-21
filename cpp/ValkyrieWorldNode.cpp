@@ -65,9 +65,9 @@ void ValkyrieWorldNode::customPreStep() {
         jPos.head(6) = Eigen::VectorXd::Zero(6);
         jPos[5] = 1.5;
         mSkel->setPositions(jPos);
+        ++mCount;
     }
 
-    ++mCount;
     if (mCount > mNumData) {
         std::cout << mNumData << " is Saved" << std::endl;
         exit(0);

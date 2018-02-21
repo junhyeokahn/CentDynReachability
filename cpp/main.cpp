@@ -5,17 +5,39 @@
 #include "ValkyrieWorldNode.hpp"
 #include "Configuration.h"
 
+class OneStepProgress : public osgGA::GUIEventHandler
+{
+public:
+    OneStepProgress(ValkyrieWorldNode* worldnode): worldnode_(worldnode){  }
+
+    /** Deprecated, Handle events, return true if handled, false otherwise. */
+    virtual bool handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapter& /*aa*/)
+    {
+        if (ea.getEventType() == osgGA::GUIEventAdapter::KEYUP) {
+            if (ea.getKey() == 'f') {
+                worldnode_->customPreStep();
+                worldnode_->getWorld()->step();
+                worldnode_->customPostStep();
+                return true;
+            }
+        }
+        return false;
+    }
+    ValkyrieWorldNode* worldnode_;
+};
+
 int main(int argc, char *argv[])
 {
     //// Generate world and add skeletons
     dart::simulation::WorldPtr world(new dart::simulation::World);
     dart::utils::DartLoader urdfLoader;
     dart::dynamics::SkeletonPtr robot = urdfLoader.parseSkeleton(
-            THIS_COM"RobotModel/valkyrie.urdf");
+            THIS_COM"RobotModel/valkyrie_simple.urdf");
     world->addSkeleton(robot);
     robot->setSelfCollisionCheck(true);
     robot->setAdjacentBodyCheck(false);
     Eigen::Vector3d gravity(0.0, 0.0, 0.0);
+    //Eigen::Vector3d gravity(0.0, 0.0, -9.8);
     world->setGravity(gravity);
     world->setTimeStep(1.0/1000);
 
@@ -28,6 +50,7 @@ int main(int argc, char *argv[])
     dart::gui::osg::Viewer viewer;
     viewer.addWorldNode(node);
     viewer.simulate(false);
+    viewer.addEventHandler(new OneStepProgress(node) );
     std::cout << "=====================================" << std::endl;
     std::cout << viewer.getInstructions() << std::endl;
     viewer.setUpViewInWindow(0, 0, 640, 480);
