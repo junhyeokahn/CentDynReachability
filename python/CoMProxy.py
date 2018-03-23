@@ -6,6 +6,7 @@ import sys
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import time
+from sklearn.mixture import GaussianMixture
 
 class PDF(object):
     def __init__(self, _mean, _var=0.1):
@@ -133,6 +134,22 @@ def main():
             % (KDEEndTime-KDEStartTime))
 
     drawContourPlot(comSelectedAxis, np.array(kdeVal[1:]).reshape(comSelectedAxis[0].shape), 0, 1) # X-Y Plane Projection
+
+    ''' GMM '''
+    gmm = GaussianMixture(n_components=10)
+    gmm.fit(CoM_rFoot)
+    print("Mean \n")
+    print(gmm.means_)
+    print('\n')
+    print("Covariance \n")
+    print(gmm.covariances_)
+    print("Weights \n")
+    print(gmm.weights_)
+    # X, Y = np.meshgrid(np.linspace(-20, 20), np.linspace(-20,20))
+    # XX = np.array([X.ravel(), Y.ravel()]).T
+    # Z = gmm.score_samples(XX)
+    # Z = Z.reshape((50,50))
+
     plt.show()
 
 if __name__ == "__main__":
